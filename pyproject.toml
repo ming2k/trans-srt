@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "srt-translator"
+version = "0.1.0"
+description = "A tool to translate SRT subtitle files using Azure Translator"
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+authors = [
+    { name = "Harrison Anderson", email = "mingmillennium@gmail.com" }
+]
+dependencies = [
+    "requests>=2.28.0",
+    "tqdm>=4.65.0"
+]
+
+[project.scripts]
+srt-translator = "srt_translator.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["srt_translator"] 

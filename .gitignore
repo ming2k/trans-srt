@@ -25,12 +25,16 @@ venv/
 env/
 ENV/
 .env
+.venv/
+.python-version  # For pyenv
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*.sublime-workspace
+*.sublime-project
 
 # Project specific
 output.srt
@@ -39,7 +43,25 @@ output.srt
 
 # Logs
 *.log
+logs/
+log/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
 
 # OS specific
 .DS_Store
-Thumbs.db 
+Thumbs.db
+*.tmp
+*.bak
+.*.swp
+._*
+
+# Local development
+local_settings.py
+db.sqlite3
+*.db 

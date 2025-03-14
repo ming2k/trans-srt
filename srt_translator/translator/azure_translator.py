@@ -1,12 +1,18 @@
-import requests
-import uuid
-import json
+"""Azure Translator implementation."""
 import os
 import time
+import uuid
 from typing import Optional
+
+import requests
 from requests.exceptions import RequestException
 
-class TranslationService:
+from .base import BaseTranslator
+
+
+class AzureTranslator(BaseTranslator):
+    """Azure Cognitive Services Translator implementation."""
+
     def __init__(self, key: str = None, location: str = None, max_retries: int = 3, retry_delay: int = 1):
         self.key = key or os.getenv('AZURE_TRANSLATOR_KEY')
         self.location = location or os.getenv('AZURE_TRANSLATOR_LOCATION')
@@ -46,7 +52,7 @@ class TranslationService:
                     params=params, 
                     headers=headers, 
                     json=body,
-                    timeout=10  # Add timeout
+                    timeout=10
                 )
                 response.raise_for_status()
                 result = response.json()
